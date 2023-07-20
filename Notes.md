@@ -1,186 +1,217 @@
-17/07/23 
+# Modelisation de donnees (Merise, MCD, MLD, MPD)
 
-# Modélisation de base de données
+## 0. Informations sur la prise de notes et la notation
 
-## 1. Introduction
+- Les notes sont prises en Markdown
+- Tout rendu se fait avec un depot Git
+- La qualite de la prise de note fera partie de la note finale
 
-``` sh
+- Au cours de l'examen l'utilisation ou toute suspicion d'utilisation de chat GPT entrainera une note de 0
+
+## 1. Introduction a Git
+
+Pour creer un depot Git, placez vous au sein d'un repertoire et entrez la commande :
+
+```sh
 git init
 ```
 
-Cette commande va initialiser un depot Git, Git va traquer toutes les modifications faites dans le dossier 
+Cette commande va initialiser un depot Git, Git va traquer les toutes les modifications effectuées au sein de ce dossier.
 
-Pour consulter l'etat du depot Git il faut lancer la commande : 
-``` sh
+Pour consulter l'etat du depot Git il suffit de lancer la commande :
+
+```bash
 git status
-``` 
+```
 
-Pour sauvegarder on utilise la commande :
-``` sh
-git commit
+Pour ajouter des fichiers non suivis :
+
+```bash
+git add .
+```
+
+Pour sauvegarder votre travail :
+
+```bash
+git commit -m "votre message de commit"
 ```
 
 ## 2. Merise
 
-Merise est une méthode de modélisation de données. Elle permet de 
-représenter les données d'un système d'information.
-Merise est un acronyme de : Méthode d'Etude et de Résiliation Informatique pour les Systèmes d'Entreprise.
+Merise est une méthode de modélisation de données. Elle permet de représenter les données d'un système d'information.
+Merise est un acrnonyme de : Méthode d'Etude et de Réalisation Informatique pour les Systèmes d'Entreprise.
 
-Présentation générale : 
+Presentation generale
+Cette methode se caracterise par trois points clés:
 
-Cette méthide se caractérise par 3 points clés : 
+- une approche dite systemique : on transforme les processus de l'entreprise en systeme d'information
+- une separation des donnees et des traitements
+- une approche nivelée
 
-- Une approche dite systemique : on transforme les processus de 
-l'entreprise en systeme d'information 
-
-- Une séparation des données des traitements 
-
-- Une approche nivellée
-
-
-### L'Approche systemique 
+### L'approche systemique
 
 ![Alt text](image.png)
 
-Le système de pilotage : 
-- Il est composé de l'ensemble des acteurs qui vont ** piloter ** le système d'information
+Le systeme de pilotage:
 
-Le système d'information : 
-- Il est composé de l'ensemble des acteurs qui vont ** utiliser ** le système d'information
+- Il est compose de l'ensemble des acteurs qui vont **piloter** le systeme d'information
 
-Le système operant : 
-- Il est composé de l'ensemble des acteurs qui vont ** produire ** les données du système d'information
+Le systeme d'information:
 
-### La séparation des données et des traitements
+- Il est compose de l'ensemble des acteurs qui vont **utiliser** le systeme d'information
 
-La séparation des données et des traitements permet de séparer les données du système d'information et les 
-traitements effectues sur ces données
+Le systeme operant :
 
-Cette démarchce se fzit en 3 étapes : 
+- Il est compose de l'ensemble des acteurs qui vont **produire** les donnees du systeme d'information
 
-- L'analyse des flux : on analyse les flux d'informations entre les acteurs du systèmes d'information et les acteurs du système operant. 
+### La separation des donnees et des traitements
 
-- L'étude des documents interne (factures, bon de livraison,)
+La separation des donnees et des traitements permet de separer les donnees du systeme d'information et les traitements effectues sur ces donnees.
+Cette demarche se fait en 3 etapes :
 
-- L'étude des documents en extrenes (fournisseurs, clients,).
+- L'analyse des flux : on analyse les flux d'informations entre les acteurs du systeme d'information et les acteurs du systeme operant
+- L'etude des documents internes (factures, bon de livraison,)
+- L'etude des documents en externes (fournisseurs, clients,).
 
+Les differents types d'informations:
 
-Les differents types d'informations :
+- les infos de bases ou elementaires : ce sont les donnees de base du systeme d'information
+- les informations calculees : ce sont les donnees calculees a partir des donnees de base
+- les traitements ou les fonctions : ce sont les traitements effectues sur les donnees de base pour obtenir les donnees calculees
 
-- Les infos de bases ou elementaires : ce sont les données de base du système d'information
- 
-- Les informations calculées : ce sont les données calcules à partir des données de base
+En résumé : vous devrez identifier les données et les traitements effectués sur ces données.
 
-- Les traitements ou les fonctions : ce sont les traitements effectues sur les données de base pour obtenir les données calculées
+### L'approche nivelée
 
-En résumé : vous devrez identifier les données et les traitements éffectués sur ces données.
+Pour effectuer la conception d'un SI, on va utiliser une approche nivelée. Cette approche se compose de 4 niveaux :
 
-#### L'approche nivelée
+- le niveau conceptuel
+- le niveau organisationnel
+- le niveau logique
+- le niveau physique
 
-Pour effectuer la conception d'un SI (système d'information), on va utiliser une approche nivelée,
-Cette approche se compose de 4 niveaux : 
+#### Le niveau conceptuel
 
-- Le niveau conceptuel
-- Le niveau organisationnel
-- Le niveau logique 
-- Le niveau physique
+Le niveau conceptuel permet de modéliser les données de l'entreprise. On va utiliser le modèle conceptuel de données (MCD) pour modéliser les données de l'entreprise, et le MCT pour modéliser les traitements effectués sur ces données.
 
-#### Le niveau conceptuel 
+#### Le niveau organisationnel
 
-Le niveau conceptuel permet de modéliser les données de l'entreprise.
-On va utiliser le modèle conceptuel de données (MCD) pour modéliser les données
-de l'entreprise, et le MCT pour modéliser les traitements effectués sur ces données.
+Le niveau organisationnel va permettre d'integrer a l'analyse precedente toutes les notions de temporalite, de chronologie des operations, de contraintes geographique, niveau d'acces. On va utiliser le modele organisationnel des traitements (MOT) et le modele organisationnel des donnees (MOD) pour modéliser les traitements de l'entreprise.
 
-#### Le niveau organisationnel 
+En resume on se pose les questions suivantes a partir des donnees recueillies au niveau conceptuel :
 
-Le niveau organisationnel permet d'integrer a l'analyse précédente toutes les notions de temporalité, de chronologie des opérations, de contraintes
-géographiques. On va utiliser le modèle organisationnel des traitements (MDT) et le modèle organisationnel des données (MOD) pour modéliser les traitements de l'entreprise. 
+- **Quand** les traitements sont-ils effectues ?
+- **Où** les traitements sont-ils effectues ?
+- Par **qui** les traitements sont-ils effectues ?
 
-En résumé on se pose les questions suivantes a partir des données receuillies au niveau conceptuel : 
+#### Le niveau logique
 
-*** Quand *** les traitements sont-ils éffectués ?
-*** Ou *** les traitements sont-ils éffectués ? 
-Par *** Qui *** les traitements sont-ils éffectués ? 
+Le niveau logique va permettre de modéliser les données de l'entreprise en utilisant le modèle logique de données (MLD) et les traitements de l'entreprise en utilisant le modèle logique des traitements (MLT).
 
+Le MLD est independant des langages de programmation et des SGBD (Systeme de Gestion de Base de Donnees).
 
-#### Le niveau logique 
+On repond a la question : **Avec Quoi** les traitements sont-ils effectues ?
 
-Le niveau logique va permettre de modéliser les données de l'entreprise en utilisant le modèle logique de données (MLD) et les traitements 
-de l'entreprise en utilisants le modèle logique des traitements (MLT)
+#### Le niveau physique
 
-Le MLD est indépendant des languages de programmation et des SGBD (système de gestion de base de données).
+Il s'agit de l'organisation `réelle` des données. On va utiliser le modèle physique de données (MPD) et le modèle physique des traitements (MPT).
 
-On repond a la question : *** Avec quoi *** les traitements sont-ils éffectués ?
+Ici, on apporte les solutions techniques de stockage des données et de traitement des données.
 
-#### Le niveau physique 
+On repond a la question : **Comment** les traitements sont-ils effectues ?
 
-Il s'agit de l'organisation `réelle` des données. On va utiliser le modèle physique de données (MPD) 
-et le modèle physique des traitements (MPT).
-
-Ici, on apporte les solutions techniques de stockage des données et de traitements des données.
-
-On repond a la question : *** Comment *** les traitements sont-ils éffectués ? 
-
-#### Résumé : les 4 niveaux de Merise
+#### Résumé: les 4 niveau de Merise
 
 ![Alt text](image-1.png)
 
+### Des donnees aux dependances fonctionnelles
 
-### Des données aux dépendances fonctionnelles
+Pour etre integrees dans un systeme d'information, les donnees doivent etre triees et organisees. On va souvent tenter de les classer par type de donnees :
 
-Pour être integrées dans un système d'information, les données doivent être triées et organisées. 
-On va souvent tenter de les classer par type de données : 
-
-- chaînes de caratères, format texte 
-- type alphanumérique, format texte
-- le type numérique (integer, float ...)
+- chaines de caracteres, format texte
+- type alphanumerique, format texte
+- le type numerique (integer, float...)
 - le type date (date, datetime, timestamp)
-- le logique ou booléen (true, false)
+- le logique ou booleen (true, false)
 
-Creation d'un dictionnaire de données 
+Creation d'un dictionnaire de donnees
 
 ![Alt text](image-2.png)
 
-### Les dépendances fonctionnelles 
+![Alt text](image-3.png)
 
-Une dépendance fonctionnelle est une relation entre deux attributs d'une table.
-Elle permet de définir une relation de dépendance entre deux attibuts d'une table.
+##### Les dependances fonctionnelles
 
+Une dependance fonctionnelle est une relation entre deux attributs d'une table. Elle permet de definir une relation de dependance entre deux attributs d'une table.
 
-Le rôle d'une dependance fonctionnelle est de permettre de definr une relation de dependance entre deux attibuts d'une table : une donnee A epend fonctionnellement d'une donnee B lorsque la valeur de B determine la valeur de A 
+Le role d'une dependance fonctionnelle est de permettre de definir une relation de dependance entre deux attributs d'une table: une donnee A depend fonctionnellement d'une donnee B lorsque la valeur de B determine la valeur de A.
 
+Pour formaliser une dependance fonctionnelle on utilise la notation suivante :
+`Numero adherent (Nom, prenom, code postal, ville, telephone, date d'adhesion, mail)`
+
+La partie gauche (numero adherent) est la `source` de la dependance fonctionnelle.
+La partie droite desgine le `but` de la dependance.
+
+##### Les dependances fonctionnelles composees
+
+Si une dependance fonctionnelle qui fait intervenir plus de deux attributs (source) on parle de dependance fonctionnelle composee.
+
+Exemple: Pour connaitre le temps d'un coureur sur une etape donnee il nous faut son numero ou son nom ainsi que le nom ou le numero de l'etape.
+
+Formalisation :
+`(numero coureur, numero etape)  (temps)`
+
+##### Les dependances fonctionnelles elementaires
+
+Une dependance fonctionnelle A -> B est elementaire s'il n'existe pas une donnee C, sous-ensemble de A, decrivant une dependance fonctionnelle type C -> B.
+
+Exemples :
+
+- RefProduit -> LibelleProduit
+- NumCommande RefProduit -> QuantiteCommandee
+- <strike>NumCommande RefProduit -> DesignationProduit</strike>
+
+##### Dependance fonctionnelle elementaire directe
+
+"On dit que la dépendance fonctionnelle A -> B est directe s’il n’existe aucun attribut C tel que l’on puisse avoir A -> C et C -> B. En d’autres termes, cela signifie que la dépendance fonctionnelle entre A et B ne peut pas être obtenue par transitivité."
+
+Exemple :
+
+- RefPromo -> NumApprenant
+- NumApprenant -> NomApprenant
+- RefPromo -> NomApprenant : RefPromo -> NumApprenant -> NomApprenant
+
+##### Sujet TP/TD MCD jour 1
 
 ![Alt text](image-14.png)
 ![Alt text](image-5.png)
 ![Alt text](image-6.png)
 ![Alt text](image-7.png)
 
+Le but de l'exercie est d'elaborer un MCD a partir d'un dictionnaire de donnees.
 
-Le but de l'exercice est d'élaborer un MCD a partir d'un dictionnaire de données.
+Ici on va introduire les notions d'entite, de relations et de propriétés.
 
-Ici on va introduire les notions d'entité, de relations et de propriétés. 
+##### Les proprietes sont les informations de bases d'un SI.
 
-##### Les propriétés sont les informations de base d'un SI. 
-
-##### Les entités sont les objets du SI.
+##### Les entités sont les objets du SI.
 
 ![Alt text](image-8.png)
 
-Quelques définitions : 
+Quelques definitions:
 
-- entité forte : une entité qui ne depend pas d'une autre entite pour exister 
-- entité faible : une entité qui depend d'une autre entité pour exister
+    - entite forte: une entite qui ne depend pas d'une autre entite pour exister
+    - entite faible: une entite qui depend d'une autre entite pour exister
 
-#### Les relations 
+##### Les relations
 
 ![Alt text](image-9.png)
 
-
-*** Les cardinalités *** : Elles permettent de définir le nombre d'occurences d'une entité par rapport à une autre entité.
+**Les cardinalités**: elles permettent de définir le nombre d'occurences d'une entité par rapport à une autre entité dans le cadre d'une relation.
 
 ![Alt text](image-10.png)
 
-Petits exemples : 
+Petit Exemple :
 
 ![Alt text](image-11.png)
 
@@ -188,99 +219,321 @@ Petits exemples :
 
 ![Alt text](image-13.png)
 
-
 ##### Les relations "porteuses"
 
-Une relation est dite "porteuses" quand elle possède des propriétées.
+Une relation est dite porteuse si elle possede des proprietes.
 
-![Alt text](image-15.png) 
+![Alt text](image-15.png)
 
+![Alt text](image-16.png)
 
+##### Les relations reflexives
 
-####
+Une relation est dite reflexive si elle relie une entite a elle meme.
 
+![Alt text](image-17.png)
 
-Quelques règle de concpetion : 
+##### Quelques regles de conception :
 
-- toute entité doit avoir un identifiant 
+- toute entite doit avoir un identifiant
+- toutes les proprietes dependent fonctionnellement de l'identifiant
+- le nom d'une propriete ne doit apparaitre qu'une seule fois dans le MCD : si vous avez une entite Eleve et une entite Professeur, vous ne pouvez pas avoir une propriete nom dans les deux entites. Il faut donc renommer la propriete nom de l'entite Professeur en nomProfesseur par exemple.
+- les proprietes issues d'un calcul ne doivent pas apparaitre dans le MCD
 
-- toutes les propriétées dépendent fonctionnellement de l'identifiant
+Installation d'AnalyseSI, pre requis java :
 
-- le nom d'une propriété ne doit apparaître qu'une seule fois dans le MCD : si vous avez une entité Eleve et une entité Professeur, 
-vous ne pouvez pas avoir une entité nom dans les deux entités. Il faut donc rennomer la propriété nom de l'entité Professeur en nomProfesseur par exemple. 
+Sur windows, creez la variable d'environnement systeme `JAVA_HOME` et mettez la valeur du chemin d'installation de java.
 
-- les propriétés issues d'un calcul ne doivent pas apparaître dans le MCD.
+```
+C:\Program Files\Java\jdk1.8.0_121
+```
 
+Modifier la variable d'environnement `PATH` et ajoutez `%JAVA_HOME%\bin`
 
-Pour formaliser une dependance fonctionnelle on utilise la notion suivante : 
+Pour tester le fonctionnement, ouvrez un terminal et tapez la commande `java -version`
 
-`Numéro adhérent (nom, prenom, code postal, ville, telephone, date d'adhésion, mail)`
+##### Les contraintes d'integrite fonctionnelle (CIF)
 
-La partie gauche (numéro adhérent) est la source de la dependance fonctionnelle.
+Definition : Une CIF est definie par le fait qu'une des entites de l'association est completement determinee par la connaissance d'une ou de plusieurs entites participant a l'association.
 
-La partie droite designe le `but` de la dépendance
-
-#### Les dependances fonctionnelles composees
-
-
-Si une dependance fonctionelle qui fait intervenir plus de deux attributs (source) on parle de dépendance fonctionnelle composee.
-
-Exemple : Pour connaître le temps d'un coureur sur une étape donc il faut nous faut son numero ou son nom ainsi que le nom ou le numero de l'étape.
-
-Formalisation : 
-
-`(numéro courreur, numéro étape) (temps)`
-
-
-
-#### Les dépendances fonctionnelles élémentaires
-
-Une dépendance fonctionnelles A -> B est élémentaire s'il n'existe pas une donnée C, sous-ensemble de A, 
-décrivant dépendance fonctionnelle type C -> B.
-
-Exemples : 
-
-- RefProduit -> LibelleProduit
-- NumCommande RefProduit -> QuantiteCommande
-- <strike>NumCommande RefProduit -> DesignationProduit</strike>
-
-#### Dépendance fonctionelle élémentaire directe 
-
-"On dit que la dépendance fonctionnelle A -> B est directe s'il n'esixte aucu attibut  tel que l'on puisse avoir A -> C et C -> B.
-En d'autres termes, cela signifie que la dépendance fonctionnelle entre A et B ne peut pas être obtenue par transivité."
-
-
-Exemple : 
-
-- RefPromo -> NumApprenant
-- NumApprenant -> NomApprenant
-- RefPromo -> NomApprenant : RefPromo -> NumApprenant -> NomApprenant
-
-
-
-
-
-#### Sujet TP/TD MCD jour 1
-
-![Alt text](image-14.png)
-![Alt text](image-5.png)
-![Alt text](image-6.png)
-![Alt text](image-7.png)
-
-
-
-
-##### Les contraintes d'integrité fonctionnelle (CIF)
-
-Definition : Une CIF est définie par le fait qu'une des entitées de l'association est completement determinée par la connaissance d'une ou de plusieurs entitées participant à l'association.
-
-Exemple : 
+Exemple :
 
 ![Alt text](image-18.png)
 
-Une Salle peut contenir 0 ou plusieurs ordianteurs. Un ordianteur existe dans une et une seule salle. 
+Une Salle peut contenir 0 ou plusieurs Ordinateurs. Un ordinateur existe dans une et une seule salle.
+Dans ce type de relation une CIF existe si on a une cardinalite 1,1
 
-Dans ce type de relation une CIF existe si on a une cardinalité 1,1
+### Modele Logique des donnees (MLD)
+
+Le MLD est la suite du processus Merise, on se rapproche un peu plus de la base de donnees.
+
+#### Cas simple:
+Partons du MCD suivant :
+
+![Alt text](image-19.png)
+
+Nous arrivons au MLD suivant :
+
+![Alt text](image-20.png)
+
+L'`entite` qui possede la cardinalite 1,1 ou 0,1 absorbe l'identifiant de l'entite la plus forte (0,n ou 1,n). Cet identifiant devient alors une cle etrangere.
+
+#### Cas (0,n), (0,n) ou (1,n), (1,n)
+
+Partons du MCD suivant :
+
+![Alt text](image-21.png)
+
+Dans le cas ou la `cardinalite max` est n des deux cotes, on cree une entite intermediaire qui va contenir les deux cles etrangeres des deux entites.
+
+![Alt text](image-22.png)
+
+Continuons avec le MCD suivant :
+
+![Alt text](image-23.png)
+
+On obtient le MLD suivant en suivant la meme logique:
+
+![Alt text](image-24.png)
+
+#### Cas d'une relation reflexive
+
+Partons du MCD suivant :
+
+![Alt text](image-25.png)
+
+![Alt text](image-26.png)
+
+#### Regles de passage du MCD au MLD
+
+Règles simples de passage du MCD au MLD
+L’entité qui possède la cardinalité maximale égale à 1 recevra l’identifiant ou les identifiants des entités ayant les cardinalités maximales les plus fortes.
+
+Les relations ayant toutes leurs entités reliées avec des cardinalités maximales supérieures à 1 se transformeront en entité en absorbant les identifiants des entités jointes.
+
+Toute relation porteuse de propriétés se transformera en entité et absorbera comme clé étrangère les identifiants des entités qui lui sont liées.
+
+Toute relation réflexive se transformera en entité et absorbera comme clé étrangère l’identifiant de l’entité qui lui est liée.
+
+##### Petit exercice pratique :
+
+A partir du MCD suivant construisez le MLD :
+
+![Alt text](image-27.png)
+
+Voici le MLD :
+
+![Alt text](image-28.png)
+
+### Modele physique des donnees (MPD)
+
+Voici le schema relationnel correspondant au MLD precedent :
+
+Diplômes (Diplomes)
+
+Possède (#NumEmployé, #Diplôme, Date d’obtention)
+
+Employés (NumEmployé, Nom, Prénom, Adresse, Code Postal, Ville, Téléphone)
+
+Tables (NumTable, Capacité)
+
+Date (Date)
+
+Service (TypeService, Désignation)
+
+Boissons Diverses (NumBoissons, Désignation, Prix de vente)
+
+Contenir (#NumCommande, #NumBoissons, Quantité)
+
+Commande (NumCommande, #Numemployé, #Date, #TypeService, #NumTable)
+
+Comprend (#NumMenu, #NumCommande, Quantité)
+
+Menus (NumMenu, Libellé, Prix de vente)
+
+Constitué (#NumMenu, #NumPlat)
+
+Constituer (#NumCommande, #NumPlat, Quantité)
+
+Sélectionner (#NumCommande, #NumVin, Quantité)
+
+Carte des vins (NumVin, Nom du vin, Millesime, Prix de vente)
+
+Carte des plats (NumPlat, LibelléPlat, Prix de vente, #NumType)
+
+Type des plats (NumType, Désignation)
+
+Bouteilles (NumBouteille, Date Achat, Prix d’achat, # NumVin, #NumViticulteur)
+
+Viticulteur (NumViticulteur, Nom viticulteur, Prénom viticulteur, Adresse viticulteur, Code postal, Ville, Téléphone)
+
+A partir d'ici il est facile de generer le script SQL correspondant.
+
+```SQL
+CREATE TABLE CARTE_DES_VINS
+   (
+   NUMVIN INTEGER(2) NOT NULL ,
+   NOM_DU_VIN CHAR(40)   ,
+   MILLESIME INTEGER(2)  ,
+   PRIX_DE_VENTE REAL(5,2)
+,
+    PRIMARY KEY (NUMVIN) CONSTRAINT PK_CARTE_DES_VINS
+   );
+
+CREATE TABLE BOUTEILLES
+   (
+   NUMVITICULTEUR INTEGER(2) NOT NULL ,
+   NUMVIN INTEGER(2) NOT NULL ,
+   NUMBOUTEILLE INTEGER(2) NOT NULL ,
+   DATE_ACHAT DATE(8) ,
+   PRIX_D_ACHAT REAL(5,2)
+,
+    PRIMARY KEY (NUMVITICULTEUR, NUMVIN, NUMBOUTEILLE) CONSTRAINT
+PK_BOUTEILLES
+   );
+
+
+CREATE TABLE VITICULTEUR
+   (
+   NUMVITICULTEUR INTEGER(2) NOT NULL ,
+   NOM_VITICULTEUR CHAR(20) ,
+   PRÉNOM_VITICULTEUR CHAR(20) ,
+   ADRESSE_VITICULTEUR CHAR(40) ,
+   CODE_POSTAL CHAR(5) ,
+   VILLE CHAR(40) ,
+   TÉLÉPHONE CHAR(15)
+,
+    PRIMARY KEY (NUMVITICULTEUR) CONSTRAINT PK_VITICULTEUR
+   );
+```
+
+
+
+## Les formes normales (FN)
+
+Ensemble de règles qui a pour but d'éviter les anomalies au sein des BDDR (Base De Données Relationnelle).
+Pour appliquer les concepts des formes normales il est necessaire de connaître les 3 permières formes normales.
+
+## Formes normale 1 (1FN)
+
+Une relation est en premiers forme normale si :
+
+- tout les attributs sont atomiques 
+- les attributs ne contiennent pas de valeurs répétitives
+
+Exemple : 
+Clients (NumCli, Nom, Prenom, Adresse, Téléphone)
+
+![Alt text](image-29.png)
+
+
+![Alt text](image-30.png)
+
+
+### Forme normale 2 (2FN)
+
+Une relation est en deuxieme forme normale si : 
+
+- elle est en 1FN
+- si tous les attributs qui ne sont pas des clés ne dépendent pas d'une partie de la clé primaire
+
+Exemple : 
+
+Commande(NumClient, CodeArticle, Date, QtéCommande, Désignation)
+
+
+![Alt text](image-31.png)
+
+![Alt text](image-32.png)
+
+
+### Forme normale 3 (3FN)
+
+
+Une relation est en troisème forme normale si : 
+
+
+- Elle est en 2FN 
+- Si toutes les dépendances fonctionnelles sont directes
+
+Exemple : 
+
+Commande (NumCommande, #CodeClient, #RefArticle)
+
+![Alt text](image-34.png)
+
+
+### Les diagramme  des flux
+
+
+Les diagramme  des flux permettent de modéliser les flux d'informations entre les acteurs du système d'information et les acteurs du système opérant.
+
+
+Quelques définitions : 
+
+- Domaine d'étude : le périmètre d'une acrivité au sein d'une entreprise, d'une activité spécifique
+
+- L'acteur : une personne, un service, une entreprise, un système informatique qui intervient dans le domaine d'étude au moyen d'un flux d'information
+
+- Les flux : les informations qui circulent entre les acteurs, représenté par une flèche et porte un nom et peut etre numéroté (par soucis de chronologie)
+
+Représentation graphique : 
+
+![ALt text](image-35.png)
+
+Quelques règles a respecter : 
+
+- un flux ne peut pas etre bidrectionnel
+
+- un flux ne doit pas etre reflexif
+
+- on ne représente pas les flux entre les acteurs externes
+
+
+## UML
+
+UML : Unified Modeling Language (language de modélisation unifié) est un language de modélisation de données. UML a été normalisé en 1997 par l'OMG (Object Manajement Group). Son but est de mettre en forme les concepts de la Programmation Orientée Objet avec des diagramme .
+
+UML propose 13 diagramme  dépendants de façon hiérarchique et se complétant.
+
+1. les diagramme  statiques : ils permettent de modéliser la structures d'un système 
+
+   - Diagramme de classe
+   - Diagramme d'objets
+
+2. Les diagramme  comportementaux : 
+
+   - Diagramme  des cas d'usage
+   - Diagramme  etats-transitions
+   - Diagramme  d'activité
+
+3. Les diagramme  dynamique : 
+
+   - Diagramme de séquances
+   - Diagramme de communication
+   - Diagramme global d'intersection 
+   - Diagramme de temps
+
+
+### Analogie Merise / UML 
+
+1. Cas du MCD et du diagramme des classes
+
+Le MCD et le diagramme de classe partagent beaucoup de point communs. Les différences majeures apparaissent dans le côté objet d'UML.
+Cependant, au niveau du procesus d'analyse, le diagramme de classe se rapproche plus du modèle logique des données. Le language UML pour représenter une base de données
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
